@@ -14,9 +14,13 @@ RUN apt-get update --fix-missing \
         gnupg \
         unzip
 
-# Install Node, NPM
+# Install Node, NPM, Firebase tools & Google Lighthouse
+# Cache bust so we always get the latest version of LH when building the image.
 # ToDo
 # - Install more versions & add version manager / switcher
+ARG CACHEBUST=1
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - \
     && apt-get update \
-    && apt-get install -y nodejs
+    && apt-get install -y nodejs \
+    && npm install -g firebase-tools \
+    && npm install -g lighthouse
