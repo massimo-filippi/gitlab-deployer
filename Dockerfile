@@ -19,7 +19,7 @@ RUN apt-get update --fix-missing \
 # ToDo
 # - Install more versions & add version manager / switcher
 ARG CACHEBUST=1
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - \
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - \
     && apt-get update \
     && apt-get install -y nodejs \
     && npm install -g firebase-tools \
